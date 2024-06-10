@@ -19,7 +19,7 @@ export default function Home() {
     }, 2000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [items.length]);
 
   const getStarted = () => {};
   return (
@@ -75,9 +75,9 @@ export default function Home() {
           </picture>
 
           <div className="flex ">
-            <div>
+            <picture>
               <img src="/girl.png" alt="girl image" />
-            </div>
+            </picture>
             <div className="mt-16  m-24 font-Outfit text-white content-center ">
               <h1 className="text-[64px] font-semibold">How it works</h1>
               <ul className=" font-outfit text-[48px] font-normal">
