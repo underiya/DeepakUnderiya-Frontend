@@ -1,113 +1,250 @@
+"use client";
+import { useEffect, useState } from "react";
+import Navbar from "./Navbar/page";
+import Charts from "./components/Charts";
+import ChartLegends from "./components/ChartLegends";
 import Image from "next/image";
 
 export default function Home() {
+  const [highlightedIndex, setHighlightedIndex] = useState(0);
+  const items = [
+    "Select an Avatar",
+    "Create or Generate Script",
+    "Select AI Voice",
+    "Publish",
+  ];
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHighlightedIndex((prevIndex) => (prevIndex + 1) % items.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const getStarted = () => {};
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
+    <>
+      <Navbar onClick={getStarted} />
+      <main className=" -mt-20 font-outfit bg-black">
+        <section id="feature" className="h-full  bg-black  scroll-mt-16">
+          <picture>
+            <img
+              className="absolute top-2 right-2"
+              src="/image1.png"
+              alt="image1"
+              srcSet=""
             />
-          </a>
-        </div>
-      </div>
+          </picture>
+          <div className="relative top-32 left-44  w-[660px] h-[494.5px] text-white ">
+            <div className="">
+              <div className="text-base">
+                New in AI GEN Real Time Interaction
+              </div>
+            </div>
+            <div className="h-[390.5px] my-4 flex flex-col justify-evenly">
+              <div className="space-y-2">
+                <div className="text-5xl font-medium">
+                  IOTA polygon serum ipsum WAX teraUSD gala THETHA
+                </div>
+                <div className="text-2xl font-normal">
+                  Chiliz serum TRON dash aave cardan crypto celo. Golem anokr
+                  bcancer horixon therium bitcoin
+                </div>
+              </div>
+              <div>
+                <button
+                  onClick={getStarted}
+                  className="h-16 w-48  bg-gradient-to-l to-[#9E6EE5] from-[#FA75F8] px-2  rounded-lg"
+                >
+                  Get Started
+                </button>
+              </div>
+            </div>
+          </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+          <br />
+          <div className="mt-72 "></div>
+          <picture className="relative z-10">
+            <img className=" m-auto" src="/image2.png" alt="" srcSet="" />
+            <div className=" absolute z-20 top-56  bg-transparent w-screen left-4   text-center h-32 text-5xl font-normal  text-white">
+              <span className="font-medium bg-clip-text  text-transparent bg-gradient-to-l from-[#FE9A9B] to-[#FACA6A]">
+                Create, customize, and publish{" "}
+              </span>{" "}
+              your <br /> digital persona to life effectively
+            </div>
+          </picture>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
+          <div className="flex ">
+            <div>
+              <img src="/girl.png" alt="girl image" />
+            </div>
+            <div className="mt-16  m-24 font-Outfit text-white content-center ">
+              <h1 className="text-[64px] font-semibold">How it works</h1>
+              <ul className=" font-outfit text-[48px] font-normal">
+                {items.map((item, index) => {
+                  return (
+                    <li
+                      key={index}
+                      className={
+                        index === highlightedIndex
+                          ? "bg-clip-text text-nowrap text-transparent bg-gradient-to-l from-[#9E6EE6] to-[#FCC3FA]"
+                          : " text-nowrap text-gray-500"
+                      }
+                    >
+                      {item}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </div>
+        </section>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <section id="tokenomics" className="scroll-mt-16">
+          <div className="text-center w-screen text-5xl font-normal bg-clip-text text-transparent bg-gradient-to-l from-[#FA75FB] to-[#9E6EE6] ">
+            Tokenomics
+          </div>
+          <br />
+          {/* Table  for technomics */}
+          <div className=" ml-12 grid font-inter text-white grid-cols-2 ">
+            <div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Name</div>
+                <div className="text-[#FFFFFF] opacity-80">: AI GEN</div>
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Total Supply</div>
+                <div className="text-[#FFFFFF] opacity-80">: 1B</div>
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Contact</div>
+                <div className="text-[#FFFFFF] opacity-80">
+                  : Lorem ipsum dolor ....
+                </div>
+              </div>
+            </div>
+            <div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Token Name</div>
+                <div className="text-[#FFFFFF] opacity-80">: $AIGEN</div>
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Circulating</div>
+                <div className="text-[#FFFFFF] opacity-80">: 1B</div>
+              </div>
+              <div className="grid grid-cols-2">
+                <div className="font-semibold">Chain</div>
+                <div className="text-[#FFFFFF] opacity-80">: Ethereum</div>
+              </div>
+            </div>
+          </div>
+          <br />
+          {/* Charts */}
+          <div className="flex font-inter justify-center items-center">
+            <div className="size-[500px]">
+              <Charts />
+            </div>
+            <ChartLegends />
+          </div>
+        </section>
+        <br />
+        <section id="roadmap" className="scroll-mt-16">
+          <div className="py-2 text-5xl font-normal text-center font-outfit text-transparent bg-clip-text bg-gradient-to-r from-[#FA75F8] to-[#9E6EE6]">
+            Roadmap
+          </div>
+          <br />
+          <br />
+          <div className=" space-y-[100px] text-white">
+            {/** phase1 */}
+            <div className="m-auto grid grid-cols-2  ">
+              <div className="m-auto">
+                <div className="font-medium text-5xl pt-2 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FACC69] to-[#FA75F8]">
+                  PHASE 1
+                </div>
+                <ul className="font-normal p-6 opacity-80 text-[20px] py-2 w-[528px] h-[224px] list-inside">
+                  <li>Horizen dai dai harmony dogecoin waves nexo.</li>
+                  <li>
+                    Flow horizen waves dash tether zcash waves dash terraUSD.
+                  </li>
+                  <li>
+                    Quant harmony amp cosmos PancakeSwap decentraland decred.
+                  </li>
+                  <li>Serum TRON solana tether holo crypto.</li>
+                  <li>Flow eCash amp EOS digibyte stellar.</li>
+                </ul>
+              </div>
+              <div className="relative left-[105px]  rounded-xl ">
+                {/**image */}
+                <Image
+                  src="/phase1.png"
+                  height={503}
+                  width={629}
+                  alt="phase1"
+                />
+              </div>
+            </div>
+            {/** phase2 */}
+            <div className="m-auto grid grid-cols-2  ">
+              <div className="m-auto">
+                <div className="font-medium text-5xl pt-2 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FF91A5] to-[#FA75F8]">
+                  PHASE 2
+                </div>
+                <ul className="font-normal p-6 opacity-80 text-[20px] py-2 w-[528px] h-[224px] list-inside">
+                  <li>
+                    {" "}
+                    BitTorrent dai dogecoin crypto nexo nexo cosmos tezos ox
+                    PancakeSwap.
+                  </li>
+                  <li>Tether ethereum helium eCash IOTA.</li>
+                  <li>Litecoin enjin shiba-inu dash audius monero.</li>
+                  <li>
+                    {" "}
+                    Aave PancakeSwap loopring horizen neo uniswap avalanche
+                    litecoin celsius TRON.{" "}
+                  </li>
+                  <li>Hive stellar velas flow cardano.</li>
+                </ul>
+              </div>
+              <div className="relative left-[74.91px]  rounded-2xl ">
+                {/**image */}
+                <Image
+                  src="/phase2.png"
+                  width={629}
+                  height={503}
+                  alt="phase1"
+                />
+              </div>
+            </div>
+            {/** phase3 */}
+            <div className="m-auto grid grid-cols-2  ">
+              <div className="m-auto">
+                <div className="font-medium text-5xl pt-2 pb-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FA75F8] to-[ #9E6EE6]">
+                  PHASE 3
+                </div>
+                <ul className="font-normal p-6 opacity-80 text-[20px] py-2 w-[528px] h-[224px] list-inside">
+                  <li>
+                    Revain audius bitcoin revain PancakeSwap elrond ipsum
+                    ethereum.{" "}
+                  </li>
+                  <li>Waves TRON dogecoin bancor eCash quant secret.</li>
+                  <li>
+                    Celsius crypto bancor nexo litecoin decentraland crypto.
+                  </li>
+                </ul>
+              </div>
+              <div className="relative left-[107.46px]  rounded-xl ">
+                {/**image */}
+                <Image
+                  src="/phase3.png"
+                  height={503}
+                  width={629}
+                  alt="phase1"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
