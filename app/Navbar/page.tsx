@@ -1,10 +1,7 @@
 import Link from "next/link";
 import React from "react";
 
-interface NavbarProps {
-  onClick: () => void;
-}
-const Navbar: React.FC<NavbarProps> = ({ onClick }) => {
+const Navbar = ({ onClick }: any) => {
   return (
     <nav className="sticky top-0 z-10  w-full p-[16px] bg-transparent backdrop-blur-md text-white ">
       <div className="flex h-[40px]  justify-between  ">
