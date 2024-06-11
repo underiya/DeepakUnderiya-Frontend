@@ -3,7 +3,7 @@ import React from "react";
 const ChartLegends = () => {
   return (
     <>
-      <ul className="space-y-4 text-white text-base  border-white  px-40">
+      <ul className="space-y-4 text-white text-base  border-white  px-40 ">
         <li
           className="flex items-center border-2 p-0 h-[63px]
                 rounded-l-md"
